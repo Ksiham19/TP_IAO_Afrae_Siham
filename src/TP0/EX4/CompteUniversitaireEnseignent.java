@@ -1,6 +1,6 @@
 package TP0.EX4;
 
-public class CompteUniversitaireEnseignent {
+public class CompteUniversitaireEnseignent extends CompteUniversitaire{
     private Enseignent enseignent;
     private String login;
 
