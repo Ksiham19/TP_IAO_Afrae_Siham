@@ -1,0 +1,16 @@
+Les principes SOLID non respectés :
+
+        -->Principe de responsabilié unique :
+                 la classe "Facture" fait plusieurs fonctions tel que ajout d'un nouveau article,
+                 sauvegarder une facture , imprimer ne facture . elle ne respecte pas le premier
+                 principe .
+
+        -->Principe d'Inversion des dépendences :
+                On va ajpouter des abstraction (des interfaces ) pour eviter le contact des classes
+                directement .
+
+
+
+
+
+
