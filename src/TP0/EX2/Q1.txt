@@ -1,0 +1,7 @@
+Les principes SOLID non respectés :
+
+        -->Principe de responsabilié unique :
+                 la classe "Compte" fait plusieurs traitement dans la meme fonction "addOperation" fait des traitement
+                 selon le type des comptes c'est pour cela on a pensé a rendre la fonction "addOperation" abstraire
+                 dans la clase Compte et creé des nouvelles classes "ComptesCourant" et "CompteEpargne" ou on definir
+                 le corps de notre fonction "addOperation" .
