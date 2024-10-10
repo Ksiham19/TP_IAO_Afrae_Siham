@@ -1,0 +1,11 @@
+>>Le principe SOLID non respecté est :  Single Responsibility Principle (SRP).
+
+Dans la classe "MatriceYoung", la gestion des données (stockage sous forme de tableau) et la gestion des opérations
+ (insertion, extraction et rééquilibrage du tableau) sont mélangées.
+
+ >> SOLUTION/Justification de choix de diagramme de classe:
+ On va faire la séparation des responsabilités entre les deux classes:
+
+       -TableauYoung : Responsable du stockage et de la représentation du tableau en tant que structure de données.
+       -GestionnaireYoung : Responsable de la gestion des opérations sur le tableau, comme l’insertion, l’extraction et le
+       rééquilibrage.
