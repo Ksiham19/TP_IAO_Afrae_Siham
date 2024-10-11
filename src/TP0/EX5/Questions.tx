@@ -1,0 +1,24 @@
+1.1) On constate donc que Calendrier est fortement coupl´ee `a Personne. Estce bien n´ecessaire ? Quelle premi`ere solution simple vue en cours permettrait de
+diminuer le couplage ?
+
+Réponse>> la classe Calendrier est fortement couplée à la classe Personne, ce  n'est pas nécessaire car cela viole le principe de
+faible couplage, il faut réduire cette dépendance directe, alors  comme  une solution  on peut  utiliser une interface. Cela
+permettrait à la classe Calendrier de manipuler une abstraction, et non une implémentation concrète.
+
+1.2) IPersonneest-elle donc adapt´ee `a notre situation ? Si non, d´ecrire ce que serait l’ interface
+     souhait´ee.
+
+Réponse>> Non, l'interface IPersonne originale n'est pas adaptée car elle contient des méthodes inutiles telles que envoyerEmail()
+et envoyerSMS(). La nouvelle version  se concentre uniquement sur les informations nécessaires pour gérer les anniversaires.
+
+1.3)Trouver les ´el´ements communs entre IPersonne et IAmi Facebook. Proposer ainsi une am´elioration
+    de Calendrier visant `a diminuer le couplage entre les 3 classes.
+
+Réponse>>les éléments communs sont des méthodes  comme : getDateNaissance(), setDateNaissance() getPseudo(), setPseudo() , calculerAge()
+
+1.4)Quel principe SOLID n’ ´etait pas v´erifi´e dans l’ exercice quand on voulait utiliser IPersonne
+dans Calendrier ?
+
+Réponse>>Le principe SOLID  est : la séparation des responsabilités . Dans l'originale classe Calendrier, elle gère à la fois la
+ logique d'anniversaire et l'envoi de messages, ce qui entraîne un couplage fort. En intégrant des interfaces et en séparant les
+ responsabilités on peut améliorer la conception du code.
