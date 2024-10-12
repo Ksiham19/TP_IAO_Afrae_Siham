@@ -1,104 +1,89 @@
 package TP0.EX3;
+import static java.lang.Integer.MAX_VALUE;
 
-import java.util.ArrayList;
-
-public class MatriceYoung extends ArrayList<Object> {
-    private static final int INF = Integer.MAX_VALUE; // Valeur infinie
-    private int n; // Nombre de lignes
-    private int m; // Nombre de colonnes
+public class MatriceYoung {
+    private static final int INF = MAX_VALUE;
+    private int n;
+    private int m;
+    private int[][] matrice;
 
     public MatriceYoung(int n, int m) {
-        super(n);
         this.n = n;
         this.m = m;
+        matrice = new int[n][m];
+        // Initialiser la matrice avec INF (valeur infinie)
         for (int i = 0; i < n; i++) {
-            ArrayList<Integer> row = new ArrayList<>(m); // Créer une nouvelle ligne
             for (int j = 0; j < m; j++) {
-                row.add(INF); // Initialiser chaque élément avec INF
+                matrice[i][j] = INF;
             }
-            this.add(row); // Ajouter la ligne à la matrice
         }
     }
 
     public int extraireMin() {
-        // Aucune valeur n'est insérée dans le tableau
-        if (this.getElement(0, 0) == INF) {
-            return INF;
-        } else {
-            int min = this.getElement(0, 0);
-            equilibrerTableau(0, 0); // Équilibrer le tableau après extraction
-            return min;
+        if (matrice[0][0] == INF) {
+            return INF; // Aucun élément n'est inséré
         }
+        int min = matrice[0][0];
+        // Rééquilibrer le tableau après extraction
+        equilibrerTableau(0, 0);
+        return min;
     }
 
     public boolean inserer(int key) {
-        // Vérifier si le tableau est plein
-        if (getElement(n - 1, m - 1) != INF) {
+        if (matrice[n - 1][m - 1] != INF) {
             System.out.println("Le tableau de Young est plein.");
             return false;
         }
-
-        // Insérer la clé à la dernière position (en bas à droite)
-        setElement(n - 1, m - 1, key);
+        // Insérer la clé dans la dernière case en bas à droite
+        matrice[n - 1][m - 1] = key;
+        // Rééquilibrer en remontant la clé à sa position correcte
         int i = n - 1;
         int j = m - 1;
-
-        // Remonter la clé insérée pour rétablir l'ordre
         while (i > 0 || j > 0) {
-            int top = (i > 0) ? getElement(i - 1, j) : INF;
-            int left = (j > 0) ? getElement(i, j - 1) : INF;
+            int top = (i > 0) ? matrice[i - 1][j] : INF;
+            int left = (j > 0) ? matrice[i][j - 1] : INF;
 
-            if (key <= top && key <= left) {
-                break; // La clé est à la bonne place
+            if (key >= top && key >= left) {
+                break; // La clé est à la bonne position
             } else if (top < left) {
-                setElement(i, j, top);
+                matrice[i][j] = top;
                 i--;
             } else {
-                setElement(i, j, left);
+                matrice[i][j] = left;
                 j--;
             }
         }
-
-        setElement(i, j, key); // Placer la clé à sa place finale
+        matrice[i][j] = key;
         return true;
     }
 
-    // Fonction pour rétablir la propriété du tableau de Young après l'extraction du minimum
     private void equilibrerTableau(int i, int j) {
-        int down = (i + 1 < n) ? this.getElement(i + 1, j) : INF;
-        int right = (j + 1 < m) ? this.getElement(i, j + 1) : INF;
+        int down = (i + 1 < n) ? matrice[i + 1][j] : INF;
+        int right = (j + 1 < m) ? matrice[i][j + 1] : INF;
 
         if (down == INF && right == INF) {
             return; // Fin de la descente
         }
 
         if (down < right) {
-            this.setElement(i, j, down);
+            matrice[i][j] = down;
             equilibrerTableau(i + 1, j);
         } else {
-            this.setElement(i, j, right);
+            matrice[i][j] = right;
             equilibrerTableau(i, j + 1);
         }
     }
 
-    public void printMatrice() {
+    public void printTableau() {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                if (this.getElement(i, j) == INF) {
-                    System.out.print("INF" + " ");
+                if (matrice[i][j] == INF) {
+                    System.out.print("INF ");
                 } else {
-                    System.out.print(this.getElement(i, j) + " ");
+                    System.out.print(matrice[i][j] + " ");
                 }
             }
             System.out.println();
         }
-    }
-
-    private int getElement(int i, int j) {
-        return ((ArrayList<Integer>) this.get(i)).get(j);
-    }
-
-    private void setElement(int i, int j, int valeur) {
-        ((ArrayList<Integer>) this.get(i)).set(j, valeur);
     }
 }
