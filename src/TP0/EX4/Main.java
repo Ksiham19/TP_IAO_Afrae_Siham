@@ -6,12 +6,12 @@ public class Main {
         Etudiant etudiant = new Etudiant("AFRAE", "BENWADIH", 5454);
         CompteUniversitaireEtudiant compteEtudiant = new CompteUniversitaireEtudiant(etudiant);
         compteEtudiant.genererLogin();
-        System.out.println("Login Etudiant : " + compteEtudiant.getLogin()); // Affiche le login généré
+        System.out.println("Login Etudiant : " + compteEtudiant.getLogin());
 
         // Création d'un enseignant
         Enseignent enseignant = new Enseignent("SIHAM", "KHIAR", "Professeur");
         CompteUniversitaireEnseignent compteEnseignant = new CompteUniversitaireEnseignent(enseignant);
         compteEnseignant.genererLogin();
-        System.out.println("Login Enseignant : " + compteEnseignant.getLogin()); // Affiche le login généré
+        System.out.println("Login Enseignant : " + compteEnseignant.getLogin());
     }
 }

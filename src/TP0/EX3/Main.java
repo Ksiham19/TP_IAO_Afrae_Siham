@@ -1,26 +1,18 @@
 package TP0.EX3;
 public class Main {
     public static void main(String[] args) {
-        MatriceYoung tableau = new MatriceYoung(3, 3);
+        TableauYoung tableau = new TableauYoung(3, 3);
+        GestionnaireYoung gestionnaire = new GestionnaireYoung(tableau);
 
-        // Insérer des éléments
-        tableau.inserer(3);
-        tableau.inserer(2);
-        tableau.inserer(4);
-        tableau.inserer(1);
-        tableau.inserer(6);
-        tableau.inserer(5);
-        tableau.inserer(7);
+        gestionnaire.inserer(8);
+        gestionnaire.inserer(5);
+        gestionnaire.inserer(3);
+        gestionnaire.inserer(4);
+        gestionnaire.inserer(1);
 
-        // Afficher le tableau après insertion
-        System.out.println("Tableau après insertion :");
         tableau.printTableau();
 
-        // Extraire le minimum
-        System.out.println("Minimum extrait : " + tableau.extraireMin());
-
-        // Afficher le tableau après extraction
-        System.out.println("Tableau après extraction :");
+        System.out.println("Extraction du min: " + gestionnaire.extraireMin());
         tableau.printTableau();
     }
 }

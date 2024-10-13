@@ -9,7 +9,3 @@
  (Etudiant et Enseignant) en utilisant l'héritage ou la composition.
   Chaque compte gère sa propre génération de login sans mélanger la logique.
 
-  >> Cette solution respecte le principe SOLID, car chaque classe a une responsabilité unique. Les classes
-  "CompteUniversitaireEtudiant" et "CompteUniversitaireEnseignent" se concentrent uniquement sur la gestion des logins des
-   utilisateurs respectifs, tandis que la classe abstraite "CompteUniversitaire" définit le comportement commun.
-   Cela permet également d'ajouter facilement de nouveaux types de comptes à l'avenir.
