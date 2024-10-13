@@ -8,6 +8,6 @@ envoyer une alerte, ce qui rend le code plus difficile à maintenir et à faire 
   Si on ajoute autre composant sonore, nous devrons chaque fois :
 
   -Refaire la logique de l'envoi des SMS.
-  -Établir une nouvelle connexion avec  un PackageSMS, augmentant la complexité des relations entre les classes.
+  -Établir une nouvelle connexion avec  un PackageSMS, ce qui augmente la complexité des relations entre les classes.
   Cela entraînerait une duplication de code et augmenterait le couplage entre les classes et le package SMS, ce qui rend le système
   rigide face aux changements futurs.

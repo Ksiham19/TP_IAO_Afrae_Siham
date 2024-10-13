@@ -5,7 +5,7 @@ public class RéservoirEau {
     private int niveauActuel;
     private int seuilAlerte;
 
-    // Injecter une instance d'Alerteur (comme SMSEnvoi)
+    // Injecter une instance d'Alerteur
     public RéservoirEau(Alerteur alerteur) {
         this.alerteur = alerteur;
     }
